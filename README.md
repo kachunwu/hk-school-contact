@@ -1,7 +1,7 @@
 # hk-school-contact
 This is a python script for web scraping the Hong Kong school contacts (including address, phone, fax, email and website, etc.). Given my work requires to send mass email to all schools for promotional purposes, a reliable contact list of these schools is essential. This script helps me to generate such list with a simple button pressing.
 
-# Work in Progress
+## Work in Progress
 1. Still waiting for the secondary school profiles for 2022-23.
 2. Cross-check the number of schools with the Student Enrolment Statistics (2021/22) announced by Education Bureau.
 
