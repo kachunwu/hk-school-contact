@@ -78,8 +78,13 @@ for sch_id in range(1, 600):
     if all(v is not None for v in [chi_name, eng_name, address, phone, email, fax, website, supervisor, principal, sch_type, sch_gender, religion,record_url]):
         c.execute('''INSERT INTO pri_school VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)''', (chi_name, eng_name, address, phone, email, fax, website, supervisor, principal, sch_type, sch_gender, religion,record_url))
 
-c.execute('''DELETE FROM pri_school WHERE chi_name=''''') # clean empty records by deleting rows without school name
 conn.commit()
+
+# Clean empty records by deleting rows without school name
+clean_table = 'DELETE FROM pri_school WHERE chi_name=""'
+c.execute(clean_table) 
+conn.commit()
+
 
 c.execute('''SELECT * FROM pri_school''')
 results = c.fetchall()
