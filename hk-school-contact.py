@@ -3,6 +3,15 @@ import re
 import sqlite3
 from bs4 import BeautifulSoup
 
+# Define parameters
+primary_url = "https://www.chsc.hk/psp2022/sch_detail.php?sch_id="
+pri_id_list = list(range(1, 600))
+secondary_url = "https://www.chsc.hk/ssp2021/sch_detail.php?sch_id="
+sec_id_list = list(range(1, 600))
+special_url = "https://www.chsc.hk/spsp/school_detail.php?sch_id="
+spec_id_list = list(range(2800, 2901))
+spec_id_list.append(7772)
+
 # a function to extract the name and salutation from the whole cell
 def name_str(input):
     try:
@@ -64,14 +73,13 @@ except:
     print('Database already exists.')
 
 # PRIMARY SCHOOL
-id_list = list(range(1, 600))
-id_list.append(7772)
 
-for sch_id in id_list:
+
+for sch_id in pri_id_list:
 
     print(sch_id)
 
-    URL = "https://www.chsc.hk/psp2022/sch_detail.php?sch_id=" + str(sch_id)
+    URL = primary_url + str(sch_id)
     record_url = URL
     page = requests.get(URL, verify=False)
 
@@ -156,14 +164,13 @@ for sch_id in id_list:
 conn.commit()
 
 ## SECONDARY SCHOOL
-id_list = list(range(2, 500))
-# id_list.append(7772)
 
-for sch_id in id_list:
+
+for sch_id in sec_id_list:
 
     print(sch_id)
 
-    URL = "https://www.chsc.hk/ssp2021/sch_detail.php?sch_id=" + str(sch_id)
+    URL = secondary_url + str(sch_id)
     record_url = URL
     page = requests.get(URL, verify=False)
     sch_info = BeautifulSoup(page.content, "html.parser")
@@ -241,13 +248,12 @@ for sch_id in id_list:
 conn.commit()
 
 # Special School
-id_list = list(range(2800, 2901))
-id_list.append(7772)
-for sch_id in id_list:
+
+for sch_id in spec_id_list:
 
     print(sch_id)
 
-    URL = "https://www.chsc.hk/spsp/school_detail.php?sch_id=" + str(sch_id)
+    URL = special_url + str(sch_id)
     record_url = URL
     page = requests.get(URL, verify=False)
     sch_info = BeautifulSoup(page.content, "html.parser")
