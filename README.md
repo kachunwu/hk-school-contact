@@ -1,4 +1,4 @@
-# hk-school-contact
+# hk-school-contact (HK School Contact Web Scraper)
 This is a python script for web scraping the Hong Kong school contacts (including address, phone, fax, email and website, etc.). Given my work requires to send mass email to all schools for promotional purposes, a reliable contact list of these schools is essential. This script helps me to generate such list with a simple button pressing.
 
 ## Known Issue
