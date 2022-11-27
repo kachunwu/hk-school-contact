@@ -3,6 +3,7 @@ import re
 import sqlite3
 from bs4 import BeautifulSoup
 
+# a function to extract the name and salutation from the whole cell
 def name_str(input):
     try:
         str_index = re.search(r"先生", input).start() 
