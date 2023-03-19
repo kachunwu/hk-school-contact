@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 # Define parameters
 primary_url = "https://www.chsc.hk/psp2022/sch_detail.php?sch_id="
 pri_id_list = list(range(1, 600))
-secondary_url = "https://www.chsc.hk/ssp2021/sch_detail.php?sch_id="
+secondary_url = "https://www.chsc.hk/ssp2022/sch_detail.php?sch_id="
 sec_id_list = list(range(1, 600))
 special_url = "https://www.chsc.hk/spsp/school_detail.php?sch_id="
 spec_id_list = list(range(2800, 2901))
